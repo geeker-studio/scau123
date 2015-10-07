@@ -1,182 +1,668 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="keywords" content="scau123" />
-  <meta name="description" content="scau123" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
   <title>SCAU123</title>
   <link rel="stylesheet" href="css/combo.css">
-  <link rel="stylesheet" href="css/css.css">
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/function.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src='http://localhost:35729/livereload.js'></script>
 </head>
+
 <body>
-
-    <div id="header" class="pure-g">
-      <div class="container pure-u-16-24">
-        <div id="date" class="top-menu">2015年2月26日  星期四</div>
-        <div class="top-menu fright">
-          <a href="#">正方</a>
-          <span class="split"></span>
-          <a href="#">设为主页</a>
-          <span class="split"></span>
-          <a href="#">课程表</a>
-          <span class="split"></span>
-          <a href="#">反馈</a>
+  <div id="topbar" class="pure-g">
+    <div class="container pure-u-16-24">
+      <ul id="topbar-right" class="fright topbar-child">
+        <li><a href="#">设为主页</a></li>
+        <li>|</li>
+        <li><a href="#">加入收藏</a></li>
+        <li>|</li>
+        <li><a href="#">意见反馈</a></li>
+      </ul>
+      <div id="topbar-left" class="fleft topbar-child">
+        <span id="nowDateIs"></span>
+        <span id="nowCnYearIs"></span>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div id="header" class="pure-g">
+    <div class="container pure-u-16-24 pure-g">
+      <div class="pure-g">
+        <div id="logo" class=" pure-u-1-5">
+          <h1>SCAU123</h1>
+        </div>
+        <div id="weathermain" class=" pure-u-3-5">
+          <iframe allowtransparency="true" frameborder="0" width="565" height="98" scrolling="no" src="http://tianqi.2345.com/plugin/widget/index.htm?s=2&z=1&t=1&v=0&d=3&bd=0&k=&f=&q=1&e=1&a=1&c=59287&w=565&h=98&align=center"></iframe>
+        </div>
+        <div id="maillogin" class=" pure-u-1-5">
+          <form name="gomail" onsubmit="return cmail()" action="" method="post" target="_blank" class="email_f">
+            <div id="email_g1" class="email_g">
+              <input name="uName" type="text" id="Musername"  tabindex="1" maxlength="60" placeholder="UserName" />
+              <select id="mail_options"  name="domains">
+                <option value="">--请选择--</option>
+                <option value="163">@163.com 网易</option>
+                <option value="163vip">@vip.163.com 网易VIP</option>
+                <option value="126">@126.com 网易</option>
+                <option value="sina">@sina.com 新浪</option>
+                <option value="sinavip">@vip.sina.com 新浪VIP</option>
+                <option value="sohu">@sohu.com 搜狐</option>
+                <option value="yeah">@yeah.net</option>
+                <option value="21cn">@21cn.com</option>
+                <option value="renren">人人网</option>
+                <option value="51com">51.com</option>
+                <option value="">--在弹出页登录--</option>
+                <option value="scaumail">华农学生邮箱</option>
+                <option value="weibo">新浪微博</option>
+                <option value="sogou">@sogou.com</option>
+                <option value="baidu">百度</option>
+                <option value="qqcom">QQ邮箱</option>
+                <option value="qzone">QQ空间</option>
+                <option value="gmail">Gmail</option>
+                <option value="189">189天翼</option>
+                <option value="139com">@139.com</option>
+                <option value="outlook">OutLook</option>
+              </select>
+            </div>
+            <div id="email_g2" class="email_g">
+              <input name="uPw" type="password" id="Mpwd"  tabindex="3" maxlength="50" placeholder="Password"/>
+              <input type="submit" class="login_btn" value="登录" />
+            </div>
+            <div id="hidden-input">
+              <input type="hidden" name="url" />
+              <input type="hidden" name="username" />
+              <input type="hidden" name="password" />
+              <input type="hidden" name="domain" />
+              <input type="hidden" value="true" name="enterVip" />
+              <input type="hidden" name="UserName" />
+              <input type="hidden" name="Password" />
+              <input type="hidden" name="u" />
+              <input type="hidden" name="psw" />
+              <input type="hidden" name="LoginName" />
+              <input type="hidden" name="domainname" />
+              <input type="hidden" name="passwd" />
+              <input type="hidden" name="id" />
+              <input type="hidden" name="m" />
+              <input type="hidden" name="mpass" />
+              <input type="hidden" name="loginid" />
+              <input type="hidden" name="appid" />
+              <input type="hidden" name="ru" />
+              <input type="hidden" name="eru" />
+              <input type="hidden" name="fl" />
+              <input type="hidden" name="ct" />
+              <input type="hidden" name="vr" />
+              <input type="hidden" name="sg" />
+              <input type="hidden" name="email" />
+              <input type="hidden" name="passport_51_user" />
+              <input type="hidden" name="passport_51_password" />
+              <input type="hidden" name="gourl" />
+              <input type="hidden" name="origURL" />
+            </div>
+          </form>
         </div>
       </div>
+      <div class="clearfix"></div>
+        <div id="searchbox" >
+          <form onsubmit="return gowhere1(this)" target="_blank" id="search-form" name="search_form1" method="get" action="http://www.baidu.com/baidu">
+            <input type="hidden" value="0" name="myselectvalue">
+            <input type="hidden" value="utf-8" name="ie">
+            <input type="hidden" name="tn" value="SE_zzsearchcode_shhzc78w">
+            <input type="hidden" name="ct">
+            <input type="hidden" name="lm">
+            <input type="hidden" name="cl">
+            <input type="hidden" name="rn">
+            <select name="myselect">
+              <option value="0" onclick="javascript:this.form.myselectvalue.value=0;" selected="selected">网页</option>
+              <option value="0" onclick="javascript:this.form.myselectvalue.value=4;">新闻</option>
+              <option value="1" onclick="javascript:this.form.myselectvalue.value=1;">音乐</option>
+              <option value="0" onclick="javascript:this.form.myselectvalue.value=6;">贴吧</option>
+              <option value="0" onclick="javascript:this.form.myselectvalue.value=5;">图片</option>
+            </select>
+            <input id="search-text" type="text" name="word" size="40" onfocus="checkHttps" baiduSug=1 placeholder="please type...">
+            <input id="search-submit" type="submit" value="百度一下">
+          </form>
+        </div>
     </div>
+  </div>
+  <div id="main" class="pure-g">
+    <div class="container pure-u-16-24">
+      <div id="left" class="pure-u-3-8  fleft">
 
-    <div id="main" class="pure-g">
-      <div class="container pure-u-16-24">
-        <div id="top" class="pure-g">
-          <div id="logo" class="pure-u-1-5"><h1>SCAU123</h1></div>
-          <div id="searchbox" class="pure-u-3-5">
-            <form id="search-form" target="_blank" action="http://www.baidu.com/s">
-                <select>
-                  <option value="0" selected="selected">Baidu</option>
-                  <option value="1">Bing</option>
-                  <option value="2">Google</option>
-                </select>
-              <input id="search-text" type="text" placeholder="please type..." />
-              <button id="search-submit" type="submit">Go!</button> 
-            </form>
+      </div>
+      <div id="right" class="pure-u-5-8 fleft">
+        <div class="box box-vertical">
+          <div class="box-title">
+            <span>Websites</span>
           </div>
-          <div id="weather" style="height: 125px;background:#ddd;" class="pure-u-1-5">
-          </div>
-        </div>
-        <div id="right" class="pure-u-5-8 pure-g fright">
-          <div class="box" >
-            <div class="box-title">
-              <span >Websites</span>
+          <div class="box-inner">
+            <div class="column pure-u-1-5">
+              <div class="column-title">MOST VISITED</div>
+              <ul class="linklist">
+                <li><a href="http://www.pandora.com/">Pandora</a></li>
+                <li><a href="http://www.github.com/">GitHub</a></li>
+                <li><a href="http://www.google.com/">Google</a></li>
+                <li><a href="http://www.techmeme.com/">Techmeme</a></li>
+                <li><a href="http://hg.io/">hg.io</a></li>
+                <li><a href="http://www.imdb.com/">IMDB</a></li>
+                <li>
+                  <a href="http://www.bfbcs.com/">
+                    <strong>BFBCS</strong>
+                  </a>
+                </li>
+              </ul>
             </div>
-            <div class="box-inner">
-                <div class="column">
-                  <div class="column-title">MOST VISITED</div>
-                  <ul class="nav">
-                    <li><a href="http://www.pandora.com/">Pandora</a></li>
-                    <li><a href="http://www.github.com/">GitHub</a></li>
-                    <li><a href="http://www.google.com/">Google</a></li>
-                    <li><a href="http://www.techmeme.com/">Techmeme</a></li>
-                    <li><a href="http://hg.io/">hg.io</a></li>
-                    <li><a href="http://www.youtube.com/">YouTube</a></li>
-                    <li><a href="http://olivida.basecamphq.com/">Basecamp</a></li>
-                    <li><a href="http://www.vimeo.com/">Vimeo</a></li>
-                    <li><a href="http://www.imdb.com/">IMDB</a></li>
-                    <li><a href="http://www.bfbcs.com/"><strong>BFBCS</strong></a></li>
-                  </ul>
-                </div>
-                <div class="column">
-                  <div class="column-title">MOST VISITED</div>
-                  <ul class="nav">
-                    <li><a href="http://www.pandora.com/">Pandora</a></li>
-                    <li><a href="http://www.github.com/">GitHub</a></li>
-                    <li><a href="http://www.google.com/">Google</a></li>
-                    <li><a href="http://www.techmeme.com/">Techmeme</a></li>
-                    <li><a href="http://hg.io/">hg.io</a></li>
-                    <li><a href="http://www.imdb.com/">IMDB</a></li>
-                    <li><a href="http://www.bfbcs.com/"><strong>BFBCS</strong></a></li>
-                  </ul>
-                </div>
-                <div class="column">
-                  <div class="column-title">MOST VISITED</div>
-                  <ul class="nav">
-                    <li><a href="http://www.pandora.com/">Pandora</a></li>
-                    <li><a href="http://www.github.com/">GitHub</a></li>
-                    <li><a href="http://www.google.com/">Google</a></li>
-                    <li><a href="http://www.techmeme.com/">Techmeme</a></li>
-                    <li><a href="http://hg.io/">hg.io</a></li>
-                    <li><a href="http://www.imdb.com/">IMDB</a></li>
-                    <li><a href="http://www.bfbcs.com/"><strong>BFBCS</strong></a></li>
-                    <li><a href="http://www.pandora.com/">Pandora</a></li>
-                    <li><a href="http://www.github.com/">GitHub</a></li>
-                    <li><a href="http://www.google.com/">Google</a></li>
-                    <li><a href="http://www.techmeme.com/">Techmeme</a></li>
-                    <li><a href="http://hg.io/">hg.io</a></li>
-                    <li><a href="http://www.imdb.com/">IMDB</a></li>
-                    <li><a href="http://www.bfbcs.com/"><strong>BFBCS</strong></a></li>
-                  </ul>
-                </div>
-                <div class="column">
-                  <div class="column-title">MOST VISITED</div>
-                  <ul class="nav">
-                    <li><a href="http://www.pandora.com/">Pandora</a></li>
-                    <li><a href="http://www.github.com/">GitHub</a></li>
-                    <li><a href="http://www.google.com/">Google</a></li>
-                    <li><a href="http://www.techmeme.com/">Techmeme</a></li>
-                    <li><a href="http://hg.io/">hg.io</a></li>
-                    <li><a href="http://www.imdb.com/">IMDB</a></li>
-                    <li><a href="http://www.bfbcs.com/"><strong>BFBCS</strong></a></li>
-                  </ul>
-                </div>
-                <div class="column">
-                  <div class="column-title">MOST VISITED</div>
-                  <ul class="nav">
-                    <li><a href="http://www.pandora.com/">Pandora</a></li>
-                    <li><a href="http://www.github.com/">GitHub</a></li>
-                    <li><a href="http://www.google.com/">Google</a></li>
-                    <li><a href="http://www.techmeme.com/">Techmeme</a></li>
-                    <li><a href="http://hg.io/">hg.io</a></li>
-                    <li><a href="http://www.imdb.com/">IMDB</a></li>
-                    <li><a href="http://www.bfbcs.com/"><strong>BFBCS</strong></a></li>
-                  </ul>
-                </div>
-                <div class="column">
-                  <div class="column-title">MOST VISITED</div>
-                  <ul class="nav">
-                    <li><a href="http://www.pandora.com/">Pandora</a></li>
-                    <li><a href="http://www.github.com/">GitHub</a></li>
-                    <li><a href="http://www.google.com/">Google</a></li>
-                    <li><a href="http://www.techmeme.com/">Techmeme</a></li>
-                    <li><a href="http://hg.io/">hg.io</a></li>
-                    <li><a href="http://www.imdb.com/">IMDB</a></li>
-                    <li><a href="http://www.bfbcs.com/"><strong>BFBCS</strong></a></li>
-                  </ul>
-                </div>
+            <div class="column pure-u-1-5">
+              <div class="column-title">MOST VISITED</div>
+              <ul class="linklist">
+                <li><a href="http://www.pandora.com/">Pandora</a></li>
+                <li><a href="http://www.github.com/">GitHub</a></li>
+                <li><a href="http://www.google.com/">Google</a></li>
+                <li><a href="http://www.techmeme.com/">Techmeme</a></li>
+                <li><a href="http://hg.io/">hg.io</a></li>
+                <li><a href="http://www.imdb.com/">IMDB</a></li>
+                <li>
+                  <a href="http://www.bfbcs.com/">
+                    <strong>BFBCS</strong>
+                  </a>
+                </li>
+                <li><a href="http://www.pandora.com/">Pandora</a></li>
+                <li><a href="http://www.github.com/">GitHub</a></li>
+                <li><a href="http://www.google.com/">Google</a></li>
+                <li><a href="http://www.techmeme.com/">Techmeme</a></li>
+                <li><a href="http://hg.io/">hg.io</a></li>
+                <li><a href="http://www.imdb.com/">IMDB</a></li>
+                <li>
+                  <a href="http://www.bfbcs.com/">
+                    <strong>BFBCS</strong>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="column pure-u-1-5">
+              <div class="column-title">MOST VISITED</div>
+              <ul class="linklist">
+                <li><a href="http://www.pandora.com/">Pandora</a></li>
+                <li><a href="http://www.github.com/">GitHub</a></li>
+                <li><a href="http://www.google.com/">Google</a></li>
+                <li><a href="http://www.techmeme.com/">Techmeme</a></li>
+                <li><a href="http://hg.io/">hg.io</a></li>
+                <li><a href="http://www.imdb.com/">IMDB</a></li>
+                <li>
+                  <a href="http://www.bfbcs.com/">
+                    <strong>BFBCS</strong>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="column pure-u-1-5">
+              <div class="column-title">MOST VISITED</div>
+              <ul class="linklist">
+                <li><a href="http://www.pandora.com/">Pandora</a></li>
+                <li><a href="http://www.github.com/">GitHub</a></li>
+                <li><a href="http://www.google.com/">Google</a></li>
+                <li><a href="http://www.techmeme.com/">Techmeme</a></li>
+                <li><a href="http://hg.io/">hg.io</a></li>
+                <li><a href="http://www.imdb.com/">IMDB</a></li>
+                <li>
+                  <a href="http://www.bfbcs.com/">
+                    <strong>BFBCS</strong>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="column pure-u-1-5">
+              <div class="column-title">MOST VISITED</div>
+              <ul class="linklist">
+                <li><a href="http://www.pandora.com/">Pandora</a></li>
+                <li><a href="http://www.github.com/">GitHub</a></li>
+                <li><a href="http://www.google.com/">Google</a></li>
+                <li><a href="http://www.techmeme.com/">Techmeme</a></li>
+                <li><a href="http://hg.io/">hg.io</a></li>
+                <li><a href="http://www.imdb.com/">IMDB</a></li>
+                <li>
+                  <a href="http://www.bfbcs.com/">
+                    <strong>BFBCS</strong>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-        <div id="left" class="pure-u-3-8 pure-g fleft">
+        <div class="box box-vertical">
+          <div class="box-title">
+            <span>Websites</span>
+          </div>
+          <div class="box-inner">
+            <div class="column col-1-5">
+              <div class="column-title">Category One</div>
+              <ul class="linklist">
+                <li>
+                  <a title="site1" target="_blank" href="http://baidu.com">
+                    <span>site1</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site2" target="_blank" href="http://google.com">
+                    <span>site2</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site3" target="_blank" href="http://github.com">
+                    <span>site3</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site4" target="_blank" href="http://coding.net">
+                    <span>site4</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site5" target="_blank" href="http://minecraft.com">
+                    <span>site5</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site6" target="_blank" href="http://scautiu.com">
+                    <span>site6</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site7" target="_blank" href="http://pocket.com">
+                    <span>site7</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site8" target="_blank" href="http://bing.com">
+                    <span>site8</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site9" target="_blank" href="http://v2ex.com">
+                    <span>site9</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site10" target="_blank" href="http://twitter.com">
+                    <span>site10</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site11" target="_blank" href="http://t66y.com">
+                    <span>site11</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site12" target="_blank" href="http://bilibili.com">
+                    <span>site12</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site13" target="_blank" href="http://duckduckgo.com">
+                    <span>site13</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site14" target="_blank" href="http://douban.com">
+                    <span>site14</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="column col-1-5">
+              <div class="column-title">Category Two</div>
+              <ul class="linklist">
+                <li>
+                  <a title="site1" target="_blank" href="http://baidu.com">
+                    <span>site1</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site2" target="_blank" href="http://google.com">
+                    <span>site2</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site3" target="_blank" href="http://github.com">
+                    <span>site3</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site4" target="_blank" href="http://coding.net">
+                    <span>site4</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site5" target="_blank" href="http://minecraft.com">
+                    <span>site5</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site6" target="_blank" href="http://scautiu.com">
+                    <span>site6</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site7" target="_blank" href="http://pocket.com">
+                    <span>site7</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site8" target="_blank" href="http://bing.com">
+                    <span>site8</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site9" target="_blank" href="http://v2ex.com">
+                    <span>site9</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site10" target="_blank" href="http://twitter.com">
+                    <span>site10</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site11" target="_blank" href="http://t66y.com">
+                    <span>site11</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site12" target="_blank" href="http://bilibili.com">
+                    <span>site12</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site13" target="_blank" href="http://duckduckgo.com">
+                    <span>site13</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site14" target="_blank" href="http://douban.com">
+                    <span>site14</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="column col-1-5">
+              <div class="column-title">Category Three</div>
+              <ul class="linklist">
+                <li>
+                  <a title="site1" target="_blank" href="http://baidu.com">
+                    <span>site1</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site2" target="_blank" href="http://google.com">
+                    <span>site2</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site3" target="_blank" href="http://github.com">
+                    <span>site3</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site4" target="_blank" href="http://coding.net">
+                    <span>site4</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site5" target="_blank" href="http://minecraft.com">
+                    <span>site5</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site6" target="_blank" href="http://scautiu.com">
+                    <span>site6</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site7" target="_blank" href="http://pocket.com">
+                    <span>site7</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site8" target="_blank" href="http://bing.com">
+                    <span>site8</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site9" target="_blank" href="http://v2ex.com">
+                    <span>site9</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site10" target="_blank" href="http://twitter.com">
+                    <span>site10</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site11" target="_blank" href="http://t66y.com">
+                    <span>site11</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site12" target="_blank" href="http://bilibili.com">
+                    <span>site12</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site13" target="_blank" href="http://duckduckgo.com">
+                    <span>site13</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site14" target="_blank" href="http://douban.com">
+                    <span>site14</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="column col-1-5">
+              <div class="column-title">Category Four</div>
+              <ul class="linklist">
+                <li>
+                  <a title="site1" target="_blank" href="http://baidu.com">
+                    <span>site1</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site2" target="_blank" href="http://google.com">
+                    <span>site2</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site3" target="_blank" href="http://github.com">
+                    <span>site3</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site4" target="_blank" href="http://coding.net">
+                    <span>site4</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site5" target="_blank" href="http://minecraft.com">
+                    <span>site5</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site6" target="_blank" href="http://scautiu.com">
+                    <span>site6</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site7" target="_blank" href="http://pocket.com">
+                    <span>site7</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site8" target="_blank" href="http://bing.com">
+                    <span>site8</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site9" target="_blank" href="http://v2ex.com">
+                    <span>site9</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site10" target="_blank" href="http://twitter.com">
+                    <span>site10</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site11" target="_blank" href="http://t66y.com">
+                    <span>site11</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site12" target="_blank" href="http://bilibili.com">
+                    <span>site12</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site13" target="_blank" href="http://duckduckgo.com">
+                    <span>site13</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site14" target="_blank" href="http://douban.com">
+                    <span>site14</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="column col-1-5">
+              <div class="column-title">Category Five</div>
+              <ul class="linklist">
+                <li>
+                  <a title="site1" target="_blank" href="http://baidu.com">
+                    <span>site1</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site2" target="_blank" href="http://google.com">
+                    <span>site2</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site3" target="_blank" href="http://github.com">
+                    <span>site3</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site4" target="_blank" href="http://coding.net">
+                    <span>site4</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site5" target="_blank" href="http://minecraft.com">
+                    <span>site5</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site6" target="_blank" href="http://scautiu.com">
+                    <span>site6</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site7" target="_blank" href="http://pocket.com">
+                    <span>site7</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site8" target="_blank" href="http://bing.com">
+                    <span>site8</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site9" target="_blank" href="http://v2ex.com">
+                    <span>site9</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site10" target="_blank" href="http://twitter.com">
+                    <span>site10</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site11" target="_blank" href="http://t66y.com">
+                    <span>site11</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site12" target="_blank" href="http://bilibili.com">
+                    <span>site12</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site13" target="_blank" href="http://duckduckgo.com">
+                    <span>site13</span>
+                  </a>
+                </li>
+                <li>
+                  <a title="site14" target="_blank" href="http://douban.com">
+                    <span>site14</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
 
-        </div>
-        <div id="bottom" class="pure-u-1 pure-g">
-          <div class="pure-u-1-3 fleft">
-            <div class="box">
-              <div class="box-title">
-                <span >Latest News</span>
-              </div>
-              <div class="box-inner">
-              </div>
-            </div>
-          </div>
-          <div class="pure-u-1-3 fleft">
-            <div class="box">
+      <div id="bottom" class="pure-g">
+        <div id="bottom1" class="pure-u-1-3 ">
+          <div class="box">
             <div class="box-title">
-              <span >Latest News</span>
+              <span>Latest News</span>
             </div>
             <div class="box-inner">
             </div>
-            </div>
           </div>
-          <div class="pure-u-1-3 fleft">
-            <div class="box">
+        </div>
+        <div class="pure-u-1-3 ">
+          <div class="box">
             <div class="box-title">
-              <span >Latest News</span>
+              <span>Latest News</span>
             </div>
             <div class="box-inner">
             </div>
+          </div>
+        </div>
+        <div class="pure-u-1-3 ">
+          <div class="box">
+            <div class="box-title">
+              <span>Latest News</span>
+            </div>
+            <div class="box-inner">
             </div>
           </div>
         </div>
+        <div class="clearfix"></div>
       </div>
     </div>
-    <div class="clear"></div>
-    <div id="footer" class="pure-g">
-      <div class="container pure-u-16-24">
-        <p>&copy;2015 <a href="http://geekcs.com">SCAU GEEKER STUDIO</a>.</p>
-      </div>
+      <div class="clearfix"></div>
+  </div>
+
+  <div id="footer" class="pure-g">
+    <div class="container pure-u-16-24">
+      <p class="intro">
+        <span><a href="#about">关于本站</a></span>
+        <span><a href="#">官方微博</a></span>
+        <span><a href="#">常见问题</a></span>
+      </p>
+      <p>&copy;Copyright (c) 2015 <a href="http://geekcs.com" >SCAU GEEKER STUDIO</a> All Rights Reserved.</p>
     </div>
-    <a href="#" id="back-to-top">&#128285;</a>
+  </div>
+  <a href="#" id="back-to-top">&#128285;</a>
+  <!--script here-->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script src='./js/js.js'></script>
+  <script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>
+  <script src="http://s1.bdstatic.com/r/www/cache/global/js/BaiduHttps_20150714_zhanzhang.js"></script>
 </body>
+
 </html>
