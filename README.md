@@ -1,2 +1,2 @@
 # scau123
-guide for scau's website
+张钧逸
